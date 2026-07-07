@@ -1,66 +1,60 @@
-/* --- Setzt den unsichtbaren Container über den gesamten Stream --- */
-:root {
-    --tt-width: 1080px;
-    --tt-height: 1920px;
-}
-
+/* 1. Reset: Entfernt alle Abstände vom Browser-Fenster */
 html, body {
-    width: 100vw;  /* Volle Breite des Live Studio */
-    height: 100vh; /* Volle Höhe des Live Studio */
     margin: 0;
     padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: transparent !important;
     font-family: 'Inter', sans-serif;
     color: white;
-    /* WICHTIG: Der Hintergrund MUSS transparent sein */
-    background-color: transparent !important;
-    /* WICHTIG: Erlaubt Klicks durch das Overlay hindurch (außer auf Buttons) */
+    /* Damit das Overlay nicht klickbar ist und dein Spiel nicht blockiert */
     pointer-events: none;
 }
 
-/* Der Live-Badge */
+/* 2. Live-Badge: Jetzt oben links, fest verankert */
 .live-badge {
-    /* Damit man es anklicken kann, falls nötig */
     pointer-events: auto;
     position: absolute;
-    top: 50px;
-    left: 40px;
+    top: 30px;
+    left: 30px;
     background: rgba(0, 0, 0, 0.6);
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 8px 16px;
+    border-radius: 6px;
     font-weight: bold;
     display: flex;
     align-items: center;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 24px;
+    font-size: 20px;
+}
+
+/* 3. Social-Bar: Jetzt unten zentriert, nicht mehr rechts */
+.social-bar {
+    pointer-events: auto;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%); /* Zentriert es perfekt */
+    background: linear-gradient(90deg, #FE2C55, #25F4EE);
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .pulse {
-    width: 15px;
-    height: 15px;
-    background: #FE2C55; /* TikTok Pink */
+    width: 12px;
+    height: 12px;
+    background: #FE2C55;
     border-radius: 50%;
-    margin-right: 12px;
+    margin-right: 10px;
     animation: pulse-animation 2s infinite;
 }
 
 @keyframes pulse-animation {
     0% { box-shadow: 0 0 0 0 rgba(254, 44, 85, 0.7); }
-    70% { box-shadow: 0 0 0 20px rgba(254, 44, 85, 0); }
+    70% { box-shadow: 0 0 0 15px rgba(254, 44, 85, 0); }
     100% { box-shadow: 0 0 0 0 rgba(254, 44, 85, 0); }
-}
-
-/* Die Social Bar */
-.social-bar {
-    /* Damit man es anklicken kann, falls nötig */
-    pointer-events: auto;
-    position: absolute;
-    bottom: 50px;
-    right: 40px;
-    background: linear-gradient(90deg, #FE2C55, #25F4EE);
-    padding: 12px 30px;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 20px;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }

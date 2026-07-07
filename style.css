@@ -1,24 +1,28 @@
-/* --- Basis-Setup für TikTok 9:16 --- */
+/* --- Setzt den unsichtbaren Container über den gesamten Stream --- */
 :root {
     --tt-width: 1080px;
     --tt-height: 1920px;
 }
 
 html, body {
-    width: var(--tt-width);
-    height: var(--tt-height);
+    width: 100vw;  /* Volle Breite des Live Studio */
+    height: 100vh; /* Volle Höhe des Live Studio */
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
     color: white;
-    overflow: hidden;
+    /* WICHTIG: Der Hintergrund MUSS transparent sein */
     background-color: transparent !important;
+    /* WICHTIG: Erlaubt Klicks durch das Overlay hindurch (außer auf Buttons) */
+    pointer-events: none;
 }
 
 /* Der Live-Badge */
 .live-badge {
+    /* Damit man es anklicken kann, falls nötig */
+    pointer-events: auto;
     position: absolute;
-    top: 50px; /* Etwas tiefer für bessere Sichtbarkeit */
+    top: 50px;
     left: 40px;
     background: rgba(0, 0, 0, 0.6);
     padding: 10px 20px;
@@ -47,9 +51,11 @@ html, body {
 
 /* Die Social Bar */
 .social-bar {
+    /* Damit man es anklicken kann, falls nötig */
+    pointer-events: auto;
     position: absolute;
     bottom: 50px;
-    left: 40px; /* Links ausgerichtet wirkt bei TikTok oft cleaner */
+    right: 40px;
     background: linear-gradient(90deg, #FE2C55, #25F4EE);
     padding: 12px 30px;
     border-radius: 30px;

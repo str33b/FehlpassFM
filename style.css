@@ -1,72 +1,85 @@
 :root {
-    /* Deutsche Landesfarben */
-    --color-black: #000000;
-    --color-red: #FF0000;
-    --color-gold: #FFCC00;
+    --gold: #FFD700;
+    --red: #FF0000;
+    --black: #000000;
+    --white: #ffffff;
 }
 
-/* Transparenter Basis-Container */
 html, body {
     width: 100vw; height: 100vh;
     margin: 0; padding: 0;
-    overflow: hidden;
     background: transparent !important;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Orbitron', sans-serif; /* Futuristischer Gaming-Font */
     pointer-events: none;
+    overflow: hidden;
 }
 
-/* 1. Live Badge mit Gold-Rand */
+/* 1. Live Badge mit Gold-Glow */
 .live-badge {
     pointer-events: auto;
-    position: absolute;
-    top: 40px; left: 40px;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 10px 20px;
-    border-radius: 50px;
-    border-left: 5px solid var(--color-gold); /* Gold-Akzent */
-    color: white;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
+    position: absolute; top: 40px; left: 40px;
+    background: rgba(0,0,0,0.8);
+    padding: 15px 30px;
+    border-radius: 10px;
+    border: 2px solid var(--gold);
+    color: var(--white);
+    font-size: 20px;
+    text-shadow: 0 0 10px var(--gold);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    display: flex; align-items: center;
 }
 
-/* 2. Social Bar mit dezentem Verlauf */
+/* 2. Social Bar mit ANIMIERTEM BORDER (Der "Fancy" Effekt) */
 .social-bar {
     pointer-events: auto;
-    position: absolute;
-    bottom: 120px; /* Leicht nach oben versetzt */
-    left: 50%;
+    position: absolute; bottom: 120px; left: 50%;
     transform: translateX(-50%);
-    padding: 10px 30px;
+    padding: 3px; /* Dicke des Rahmens */
     border-radius: 50px;
-    /* Schwarz-Rot-Gold Verlauf */
-    background: linear-gradient(90deg, var(--color-black), var(--color-red), var(--color-gold));
-    color: white;
-    font-weight: 700;
-    font-size: 18px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    background: linear-gradient(90deg, var(--black), var(--red), var(--gold), var(--red), var(--black));
+    background-size: 300% 300%;
+    animation: gradient-move 3s linear infinite;
 }
 
-/* 3. Ticker mit Gold-Akzenten */
+.social-content {
+    background: #111;
+    padding: 15px 50px;
+    border-radius: 50px;
+    color: var(--white);
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+/* 3. Der Lauftext-Ticker am Boden */
 .ticker-container {
-    position: absolute;
-    bottom: 0; left: 0; width: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    padding: 10px 0;
-    border-top: 3px solid var(--color-red); /* Rot-Akzent */
+    position: absolute; bottom: 0; left: 0; width: 100%;
+    background: rgba(0,0,0,0.9);
+    padding: 15px 0;
+    border-top: 3px solid var(--red);
     pointer-events: auto;
 }
 
 .ticker-text {
-    display: inline-block;
-    white-space: nowrap;
-    animation: marquee 15s linear infinite;
-    color: var(--color-gold); /* Goldene Schrift für den Lauftext */
-    font-weight: bold;
-    text-transform: uppercase;
+    display: inline-block; white-space: nowrap;
+    animation: marquee 10s linear infinite;
+    color: var(--gold);
+    font-size: 22px;
+    text-shadow: 2px 2px #000;
 }
 
+/* ANIMATIONEN */
+@keyframes gradient-move {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+}
 @keyframes marquee {
     0% { transform: translate(100%, 0); }
     100% { transform: translate(-100%, 0); }
 }
+.pulse {
+    width: 15px; height: 15px; background: var(--red);
+    border-radius: 50%; margin-right: 10px;
+    box-shadow: 0 0 10px var(--red);
+    animation: blink 1s infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }

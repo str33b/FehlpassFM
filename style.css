@@ -57,14 +57,14 @@ html, body {
     padding: 15px 0;
     border-top: 3px solid var(--red);
     pointer-events: auto;
-    overflow: hidden; /* WICHTIG: Versteckt den Text, solange er außerhalb ist */
+    overflow: hidden; /* Wichtig! */
 }
 
 .ticker-text {
-    display: inline-block; 
+    display: inline-block;
     white-space: nowrap;
-    /* Animation auf 20s verlängert für mehr Ruhe, linear für konstante Geschwindigkeit */
-    animation: marquee 20s linear infinite;
+    /* Wir nutzen hier ein "Infinite Linear" */
+    animation: marquee 25s linear infinite;
     color: var(--gold);
     font-size: 22px;
     text-shadow: 2px 2px #000;
@@ -76,8 +76,10 @@ html, body {
     100% { background-position: 300% 50%; }
 }
 @keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
+    /* Start bei 0% (Text steht rechts am Rand) */
+    0% { transform: translateX(0%); }
+    /* Ende bei -50%, weil der Text doppelt vorhanden ist */
+    100% { transform: translateX(-50%); }
 }
 .pulse {
     width: 15px; height: 15px; background: var(--red);

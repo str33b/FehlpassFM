@@ -50,37 +50,14 @@ html, body {
     letter-spacing: 2px;
 }
 
-/* 3. Der Lauftext-Ticker am Boden */
-.ticker-container {
-    position: absolute; bottom: 0; left: 0; width: 100%;
-    background: rgba(0,0,0,0.9);
-    padding: 15px 0;
-    border-top: 3px solid var(--red);
-    pointer-events: auto;
-    overflow: hidden; /* Wichtig! */
-}
 
-.ticker-text {
-    display: inline-block;
-    white-space: nowrap;
-    /* Wir nutzen hier ein "Infinite Linear" */
-    animation: marquee 25s linear infinite;
-    color: var(--gold);
-    font-size: 22px;
-    text-shadow: 2px 2px #000;
-}
 
 /* ANIMATIONEN */
 @keyframes gradient-move {
     0% { background-position: 0% 50%; }
     100% { background-position: 300% 50%; }
 }
-@keyframes marquee {
-    /* Start bei 0% (Text steht rechts am Rand) */
-    0% { transform: translateX(0%); }
-    /* Ende bei -50%, weil der Text doppelt vorhanden ist */
-    100% { transform: translateX(-50%); }
-}
+
 .pulse {
     width: 15px; height: 15px; background: var(--red);
     border-radius: 50%; margin-right: 10px;

@@ -60,11 +60,13 @@ html, body {
 }
 
 .ticker-text {
-    display: inline-block; white-space: nowrap;
-    animation: marquee 10s linear infinite;
+    display: inline-block;
+    white-space: nowrap;
+    /* Wir starten bei 100% (rechts) und laufen nach links */
+    animation: marquee 15s linear infinite;
     color: var(--gold);
-    font-size: 22px;
-    text-shadow: 2px 2px #000;
+    font-size: 28px;
+    font-weight: 900;
 }
 
 /* ANIMATIONEN */
@@ -73,8 +75,13 @@ html, body {
     100% { background-position: 300% 50%; }
 }
 @keyframes marquee {
-    0% { transform: translate(100%, 0); }
-    100% { transform: translate(-100%, 0); }
+    0% { 
+        transform: translate(100%, 0); 
+    }
+    100% { 
+        /* Der Text läuft komplett durch das Bild */
+        transform: translate(-100%, 0); 
+    }
 }
 .pulse {
     width: 15px; height: 15px; background: var(--red);
